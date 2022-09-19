@@ -1,6 +1,7 @@
 package cars.apps.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,7 @@ public class Mobil implements Serializable {
     @Column(name = "year")
     private Integer year;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id", referencedColumnName = "id")
     private List<SalesSoldCar> cars;
